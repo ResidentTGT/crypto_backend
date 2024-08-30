@@ -5,7 +5,7 @@ const whitelist = ['*'];
 
 async function bootstrap() {
     const app = await NestFactory.create(AppModule, {
-        logger: ['error', 'warn'],
+        logger: ['log', 'fatal', 'error', 'warn', 'debug', 'verbose'],
         cors: {
             methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS', 'HEAD'],
             origin: function (origin, callback) {
