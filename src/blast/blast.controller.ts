@@ -6,7 +6,7 @@ export class BlastController {
     constructor(private readonly blastService: BlastService) {}
 
     @Get('leaderboard')
-    getLeaderboard(): Promise<string> {
+    async getLeaderboard(): Promise<string> {
         return this.blastService.getLeaderboard();
     }
 }
