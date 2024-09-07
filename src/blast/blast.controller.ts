@@ -9,4 +9,9 @@ export class BlastController {
     async getLeaderboard(): Promise<string> {
         return this.blastService.getLeaderboard();
     }
+
+    @Get('predictfun/leaderboard')
+    async getPredictFunLeaderboard(): Promise<any[]> {
+        return this.blastService.getPredictFunLeaderboard();
+    }
 }
