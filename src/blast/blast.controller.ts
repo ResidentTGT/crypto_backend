@@ -12,6 +12,6 @@ export class BlastController {
 
     @Get('predictfun/leaderboard/:seasonId')
     async getPredictFunLeaderboard(@Param('seasonId') seasonId): Promise<any[]> {
-        return this.blastService.getPredictFunLeaderboard(seasonId);
+        return this.blastService.getPredictFunLeaderboard(+seasonId);
     }
 }
