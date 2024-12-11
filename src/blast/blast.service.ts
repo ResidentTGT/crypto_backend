@@ -13,7 +13,7 @@ export class BlastService {
         return data;
     }
 
-    async getPredictFunLeaderboard(): Promise<any[]> {
+    async getPredictFunLeaderboard(seasonId: number): Promise<any[]> {
         const leaderboard = [];
         let cursor;
         while (leaderboard.length === 0 || cursor) {
@@ -24,7 +24,7 @@ export class BlastService {
                         {
                             query: 'query GetSeasonLeaderboard($seasonId: Int!, $pagination: ForwardPaginationInput) {\n  season(id: $seasonId) {\n    leaderboard(pagination: $pagination) {\n      pageInfo {\n        hasNextPage\n        startCursor\n        endCursor\n      }\n      edges {\n        cursor\n        node {\n          dailyRank\n          multiplier\n          dailyPoints\n          seasonPoints\n          epochPoints\n          account {\n            walletId\n            name\n            imageUrl\n            address\n          }\n        }\n      }\n    }\n  }\n}',
                             variables: {
-                                seasonId: 3,
+                                seasonId: seasonId,
                                 pagination: {
                                     first: 150,
                                     after: cursor,

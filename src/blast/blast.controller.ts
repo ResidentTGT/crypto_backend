@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Param } from '@nestjs/common';
 import { BlastService } from './blast.service';
 
 @Controller('blast')
@@ -10,8 +10,8 @@ export class BlastController {
         return this.blastService.getLeaderboard();
     }
 
-    @Get('predictfun/leaderboard')
-    async getPredictFunLeaderboard(): Promise<any[]> {
-        return this.blastService.getPredictFunLeaderboard();
+    @Get('predictfun/leaderboard/:seasonId')
+    async getPredictFunLeaderboard(@Param('seasonId') seasonId): Promise<any[]> {
+        return this.blastService.getPredictFunLeaderboard(seasonId);
     }
 }
